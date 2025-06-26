@@ -1,0 +1,14 @@
+
+sui client call \
+--package 0xefaa6e68ed27540f97b89a9b15c48f3e8b7b407ff49efc0f5ac52ca0d268b471 \
+--module dashboard \
+--function create_proposal \
+--args "Proposal 1" "Proposal description 1" 1750723200 \
+--gas-budget 1000000000
+
+
+sui client ptb \
+--move-call 0xefaa6e68ed27540f97b89a9b15c48f3e8b7b407ff49efc0f5ac52ca0d268b471::dashboard::create_proposal \
+'"Proposal 2"' \
+'"Proposal 2 Description"' \
+1750723200 
