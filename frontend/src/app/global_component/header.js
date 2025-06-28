@@ -1,7 +1,8 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
+import {ConnectButton} from "@mysten/dapp-kit"
 import Link from 'next/link'
-
+import { useAuth } from '@/contexts/WalletContext'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -89,10 +90,7 @@ export default function Header() {
 
   const navigation = [
     { name: 'Features', href: '#features', icon: '⚡' },
-    { name: 'About', href: '#about', icon: '🎯' },
-    { name: 'Roadmap', href: '#roadmap', icon: '🗺️' },
-    { name: 'Community', href: '#community', icon: '👥' },
-    { name: 'Docs', href: '/docs', icon: '📚' }
+    { name: 'About', href: '/about', icon: '🎯' },
   ]
 
   const handleMenuToggle = (e) => {
@@ -112,7 +110,7 @@ export default function Header() {
   const handleMenuPanelClick = (e) => {
     e.stopPropagation()
   }
-
+  const { account } = useAuth()
   return (
     <>
       <header
@@ -147,24 +145,48 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-300 hover:text-white transition-all duration-200 hover:scale-105 flex items-center space-x-1 group"
-                >
-                  <span className="group-hover:animate-bounce text-sm">{item.icon}</span>
-                  <span>{item.name}</span>
-                </Link>
-              ))}
+              {account ? (
+                <>
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="text-gray-300 hover:text-white transition-all duration-200 hover:scale-105 flex items-center space-x-1 group"
+                    >
+                      <span className="group-hover:animate-bounce text-sm">{item.icon}</span>
+                      <span>{item.name}</span>
+                    </Link>
+                  ))}
+                  <a href='/dashboard' className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 flex items-center space-x-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-layout-dashboard-icon lucide-layout-dashboard"><rect width="7" height="9" x="3" y="3" rx="1" /><rect width="7" height="5" x="14" y="3" rx="1" /><rect width="7" height="9" x="14" y="12" rx="1" /><rect width="7" height="5" x="3" y="16" rx="1" /></svg>
+                    <span>Dashboard</span>
+
+                  </a>
+                  <ConnectButton/>
+                </>
+              ) : (
+                <>
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="text-gray-300 hover:text-white transition-all duration-200 hover:scale-105 flex items-center space-x-1 group"
+                    >
+                      <span className="group-hover:animate-bounce text-sm">{item.icon}</span>
+                      <span>{item.name}</span>
+                    </Link>
+                  ))}
+                  <Link href='/dashboard' className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 flex items-center space-x-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-wallet-icon lucide-wallet"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></svg>
+                    <span>Connect Wallet</span>
+
+                  </Link>
+                </>
+              )}
 
               {/* Connect Wallet Button - Desktop */}
-              <button className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 flex items-center space-x-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                <span>Connect Wallet</span>
-              </button>
+
+
             </div>
 
             {/* Mobile Menu Button */}
@@ -257,7 +279,7 @@ export default function Header() {
               <div className="border-t border-white/10 mb-6"></div>
 
               {/* Connect Wallet Button - Mobile */}
-              <button
+              <Link href={"/dashboard"}
                 className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300 flex items-center justify-center space-x-3 group"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -265,17 +287,15 @@ export default function Header() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
                 <span>Connect Wallet</span>
-              </button>
+              </Link>
 
               {/* Social Links - Mobile */}
               <div className="mt-6 pt-6 border-t border-white/10">
                 <p className="text-gray-400 text-sm mb-4">Follow us</p>
                 <div className="flex space-x-4">
                   {[
-                    { name: 'Twitter', icon: '🐦', href: '#' },
-                    { name: 'Discord', icon: '💬', href: '#' },
-                    { name: 'Telegram', icon: '📱', href: '#' },
-                    { name: 'GitHub', icon: '🐙', href: '#' }
+                    { name: 'Instagram', icon: '🐦', href: 'https://www.instagram.com/raa___sb/' },
+                    { name: 'GitHub', icon: '🐙', href: 'https://github.com/nesnyx' }
                   ].map((social, index) => (
                     <Link
                       key={social.name}

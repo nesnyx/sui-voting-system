@@ -13,7 +13,7 @@ export default function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
           <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-          <span className="text-sm text-gray-300">Now Live on Mainnet</span>
+          <span className="text-sm text-gray-300">Now Live on Testnet Sui</span>
         </div>
 
         {/* Main Heading */}
@@ -33,9 +33,9 @@ export default function Hero() {
           <button className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/25 transition-all transform hover:-translate-y-1">
             Launch dApp
           </button>
-          <button className="border border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all backdrop-blur-sm">
+          <a href="/about" className="border border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all backdrop-blur-sm">
             Learn More
-          </button>
+          </a>
         </div>
 
         {/* Stats Row */}
