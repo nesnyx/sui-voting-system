@@ -1,7 +1,6 @@
 <!-- SUI Voting System README -->
 
 <div align="center">
-  <img width="320" src="https://pintu-academy.pintukripto.com/wp-content/uploads/2023/03/SUI.png" />
   <h1>🗳️ SUI Voting System</h1>
   <p><strong>Decentralized Voting Platform Built on Sui Blockchain</strong></p>
   
@@ -9,72 +8,75 @@
   [![Built on Sui](https://img.shields.io/badge/Built%20on-Sui%20Network-000000?style=flat-square)](https://sui.io)
   [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://www.javascript.com/)
   [![Move Language](https://img.shields.io/badge/Move-Language-2B3E50?style=flat-square)](https://docs.sui.io/concepts/sui-move)
+  [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)](https://react.dev)
 </div>
 
 ---
 
 ## 🌟 Overview
 
-**SUI Voting System** adalah platform voting terdesentralisasi yang dibangun di atas Sui Blockchain. Proyek ini menggabungkan smart contracts berbasis Move dengan frontend interaktif untuk menciptakan sistem voting yang aman, transparan, dan efisien.
+**SUI Voting System** is a decentralized voting platform built on top of the Sui Blockchain. This project combines Move-based smart contracts with an interactive frontend to create a secure, transparent, and efficient voting system.
 
-Dengan memanfaatkan teknologi blockchain Sui, sistem ini menjamin integritas voting, immutability record, dan keamanan tingkat enterprise.
-
----
-
-## ✨ Fitur Utama
-
-- **🔐 Voting Aman** - Menggunakan Sui blockchain untuk memastikan keamanan dan transparansi
-- **⚡ Transaksi Cepat** - Memanfaatkan kecepatan transaksi Sui yang sangat cepat
-- **📊 Dashboard Real-time** - Pantau hasil voting secara langsung
-- **🎯 Smart Contracts** - Logika voting yang tidak dapat diubah di blockchain
-- **💻 UI/UX Modern** - Interface yang user-friendly untuk pengalaman voting terbaik
-- **🌐 Terdesentralisasi** - Tidak ada single point of failure
+By leveraging Sui's blockchain technology, this system guarantees voting integrity, immutable records, and enterprise-grade security.
 
 ---
 
-## 🏗️ Struktur Project
+## ✨ Key Features
+
+- **🔐 Secure Voting** - Uses Sui blockchain to ensure security and transparency
+- **⚡ Lightning-Fast Transactions** - Leverages Sui's exceptionally fast transaction speed
+- **📊 Real-time Dashboard** - Monitor voting results live as they happen
+- **🎯 Immutable Smart Contracts** - Voting logic that cannot be altered on the blockchain
+- **💻 Modern UI/UX** - User-friendly interface for the best voting experience
+- **🌐 Fully Decentralized** - No single point of failure, completely trustless
+- **📈 Transparent Results** - All votes are recorded and auditable on-chain
+- **🔄 Dispute Resolution** - Built-in mechanisms for voting validation
+
+---
+
+## 🏗️ Project Architecture
 
 ```
 sui-voting-system/
 ├── contracts/              # Smart Contracts (Move Language)
-│   └── sources/           # Source files smart contract
+│   └── sources/           # Smart contract source files
 ├── frontend/              # Frontend Application (React/JavaScript)
-│   ├── src/
-│   ├── public/
-│   └── package.json
-└── commands.txt           # Helpful CLI commands
+│   ├── src/              # React source code
+│   ├── public/           # Static assets
+│   └── package.json      # Dependencies
+└── commands.txt           # Helpful CLI commands reference
 ```
 
-### Komponen Utama
+### Core Components
 
 **Backend (Smart Contracts)**
-- Ditulis dalam Move language
-- Deploy ke Sui blockchain
-- Mengelola logika voting, poll creation, dan vote counting
-- Memastikan immutability dan security
+- Written in Move language
+- Deployed to Sui blockchain
+- Manages voting logic, poll creation, and vote counting
+- Ensures immutability and security at the protocol level
 
 **Frontend (Web Application)**
-- Built dengan React/JavaScript
-- Connected ke Sui blockchain via SDK
-- User-friendly interface untuk voting
-- Real-time updates dari blockchain
+- Built with React and JavaScript
+- Connected to Sui blockchain via Sui TypeScript SDK
+- User-friendly interface for voting and poll creation
+- Real-time updates from blockchain events
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
 ### Prerequisites
 
-Sebelum memulai, pastikan Anda sudah menginstall:
+Before you begin, ensure you have the following installed:
 
-- **Node.js** (v16 atau lebih tinggi)
-- **npm** atau **yarn** package manager
-- **Sui CLI** untuk deployment smart contracts
-- **Sui Wallet** untuk testing
+- **Node.js** (v16 or higher) - [Download](https://nodejs.org/)
+- **npm** or **yarn** package manager
+- **Sui CLI** for deploying smart contracts
+- **Sui Wallet** for testing and transactions
 
 ### Installation
 
-1. **Clone repository**
+1. **Clone the Repository**
 ```bash
 git clone https://github.com/nesnyx/sui-voting-system.git
 cd sui-voting-system
@@ -100,10 +102,11 @@ cd frontend
 npm start
 ```
 
-Frontend akan tersedia di `http://localhost:3000`
+The frontend will be available at `http://localhost:3000`
 
 **Deploy Smart Contracts**
-Lihat `commands.txt` untuk instruksi deployment ke Sui blockchain:
+
+Refer to `commands.txt` for deployment instructions to the Sui blockchain:
 ```bash
 cat commands.txt
 ```
@@ -112,56 +115,109 @@ cat commands.txt
 
 ## 📝 Smart Contracts Overview
 
-Smart contracts dalam project ini menangani:
+The smart contracts in this project handle:
 
-- **Poll Creation** - Membuat poll voting baru
-- **Vote Management** - Menerima dan mencatat vote dari users
-- **Vote Counting** - Menghitung dan menampilkan hasil voting
-- **Access Control** - Memastikan hanya authorized users yang bisa voting
-- **Immutable Records** - Semua vote disimpan secara permanen di blockchain
+- **Poll Creation** - Create new voting polls with custom options
+- **Vote Management** - Accept and record votes from users securely
+- **Vote Counting** - Calculate and display voting results in real-time
+- **Access Control** - Ensure only authorized users can participate
+- **Immutable Records** - All votes are permanently stored on the blockchain
+- **Vote Validation** - Prevent double voting and ensure vote integrity
 
-Contracts ditulis dalam **Move Language** yang dirancang khusus untuk keamanan dan performa di Sui blockchain.
+Smart contracts are written in **Move Language**, which is specifically designed for security and performance on the Sui blockchain.
 
 ---
 
-## 🔌 API Integration
+## 🔌 Integration Guide
 
-### Connect Wallet
-Aplikasi menggunakan Sui Wallet untuk authentication:
+### Connect Sui Wallet
+
+The application uses Sui Wallet for user authentication and transaction signing:
 
 ```javascript
-// Example: Connect to Sui
-const { data: wallet } = useWallet();
+// Example: Connect to Sui Wallet
+import { useWallet } from '@mysten/dapp-kit';
+
+function VotingComponent() {
+  const { currentAccount } = useWallet();
+  
+  return (
+    <div>
+      {currentAccount ? (
+        <p>Connected: {currentAccount.address}</p>
+      ) : (
+        <p>Please connect your wallet</p>
+      )}
+    </div>
+  );
+}
 ```
 
-### Voting Transaction
+### Cast a Vote
+
+Submit a vote transaction to the blockchain:
+
 ```javascript
-// Cast a vote on blockchain
-const vote = await signAndExecuteTransactionBlock({
-  transactionBlock: tx,
-});
+import { useSignAndExecuteTransactionBlock } from '@mysten/dapp-kit';
+
+async function castVote(pollId, option) {
+  const { mutate: signAndExecute } = useSignAndExecuteTransactionBlock();
+  
+  const tx = new TransactionBlock();
+  // Add voting logic to tx
+  
+  const result = await signAndExecute({
+    transactionBlock: tx,
+  });
+  
+  return result;
+}
 ```
 
 ---
 
 ## 🛠️ Development Guide
 
-### File Structure
-- `contracts/` - Semua Move smart contracts
-- `frontend/src/` - React components dan logic
-- `commands.txt` - Useful CLI commands untuk development
+### Project Structure
 
-### Building
-```bash
-# Build contracts
-cd contracts && sui move build
-
-# Build frontend
-cd frontend && npm run build
+```
+├── contracts/
+│   ├── sources/
+│   │   ├── voting.move      # Main voting smart contract
+│   │   └── poll.move        # Poll management contract
+│   └── Move.toml
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── VoteForm.jsx
+│   │   │   ├── PollList.jsx
+│   │   │   └── Results.jsx
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── package.json
+│
+└── commands.txt
 ```
 
-### Testing
-Jalankan test suite untuk memastikan functionality:
+### Building the Project
+
+Build smart contracts:
+```bash
+cd contracts
+sui move build
+```
+
+Build frontend:
+```bash
+cd frontend
+npm run build
+```
+
+### Testing Smart Contracts
+
+Run tests for the smart contracts:
 ```bash
 cd contracts
 sui move test
@@ -169,50 +225,166 @@ sui move test
 
 ---
 
-## 📚 Resources
+## 📚 Technology Stack
 
-- [Sui Official Documentation](https://docs.sui.io)
-- [Move Language Guide](https://move-book.com)
-- [Sui TypeScript SDK](https://sdk.mystenlabs.com)
-- [Sui Developer Discord](https://discord.gg/sui)
+**Frontend**
+- React 18 - UI library
+- JavaScript/ES6+ - Programming language
+- CSS - Styling
+- Sui TypeScript SDK - Blockchain integration
+
+**Backend**
+- Move Language - Smart contract programming
+- Sui Blockchain - Execution environment
+- BCS (Binary Canonical Serialization) - Data serialization
+
+---
+
+## 🔐 Security Features
+
+This voting system implements multiple security layers:
+
+✅ **On-Chain Verification** - All votes verified at the protocol level
+✅ **Cryptographic Signatures** - Each vote is cryptographically signed
+✅ **Transparent Audit Trail** - Full voting history on immutable ledger
+✅ **Double Vote Prevention** - Smart contracts prevent voting multiple times
+✅ **Access Control** - Only registered voters can participate
+✅ **Time-Locked Polls** - Voting periods are enforced by smart contracts
+
+---
+
+## 📖 API Reference
+
+### Smart Contract Functions
+
+#### Create Poll
+```move
+public fun create_poll(
+    title: String,
+    description: String,
+    options: vector<String>,
+    end_time: u64,
+    ctx: &mut TxContext
+)
+```
+
+#### Cast Vote
+```move
+public fun cast_vote(
+    poll_id: ID,
+    option_index: u64,
+    ctx: &mut TxContext
+)
+```
+
+#### Get Poll Results
+```move
+public fun get_results(poll_id: ID): vector<u64>
+```
 
 ---
 
 ## 🤝 Contributing
 
-Kami menerima contributions! Silakan:
+We welcome contributions from the community! Please follow these guidelines:
 
-1. Fork repository
-2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/AmazingFeature`)
+3. **Commit your changes** (`git commit -m 'Add some AmazingFeature'`)
+4. **Push to the branch** (`git push origin feature/AmazingFeature`)
+5. **Open a Pull Request**
+
+### Development Setup
+
+```bash
+# Clone your fork
+git clone https://github.com/YOUR_USERNAME/sui-voting-system.git
+
+# Install dependencies
+cd sui-voting-system
+npm install
+
+# Create a feature branch
+git checkout -b feature/your-feature
+
+# Start development
+npm run dev
+```
+
+---
+
+## 🐛 Bug Reports & Issues
+
+Found a bug? Please create an [Issue](https://github.com/nesnyx/sui-voting-system/issues) with:
+
+- Clear description of the bug
+- Steps to reproduce the issue
+- Expected vs actual behavior
+- Screenshots or code snippets if applicable
+- Environment details (browser, OS, Node.js version)
 
 ---
 
 ## 📄 License
 
-Project ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) untuk detailnya.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙋 Support & Questions
+## 📚 Resources & Learning Materials
 
-- 📧 Issues: [GitHub Issues](https://github.com/nesnyx/sui-voting-system/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/nesnyx/sui-voting-system/discussions)
-- 🌐 Website: [Sui Network](https://sui.io)
+- [Sui Official Documentation](https://docs.sui.io)
+- [Move Language Guide](https://move-book.com)
+- [Sui TypeScript SDK Documentation](https://sdk.mystenlabs.com)
+- [React Documentation](https://react.dev)
+- [Sui Developer Discord Community](https://discord.gg/sui)
 
 ---
 
-## 🎉 Acknowledgments
+## 🙋 Support & Community
 
-- Sui Foundation untuk blockchain yang amazing
-- Move language team untuk security-first design
-- Semua contributors yang membantu project ini
+Need help or have questions? Connect with us:
+
+- 📧 **GitHub Issues**: [Create an Issue](https://github.com/nesnyx/sui-voting-system/issues)
+- 💬 **GitHub Discussions**: [Start a Discussion](https://github.com/nesnyx/sui-voting-system/discussions)
+- 🌐 **Sui Community**: Join the [Sui Discord](https://discord.gg/sui)
+
+---
+
+## 📈 Roadmap
+
+### Current Version (v1.0)
+- ✅ Basic voting functionality
+- ✅ Real-time results display
+- ✅ Smart contract security
+
+### Upcoming Features (v1.1)
+- [ ] Multi-choice voting options
+- [ ] Weighted voting by stake
+- [ ] Voting delegation system
+- [ ] Advanced analytics dashboard
+- [ ] Mobile app version
+- [ ] DAO integration
+- [ ] Snapshot voting support
+
+---
+
+## 🙏 Acknowledgments
+
+We would like to thank:
+
+- **Sui Foundation** - For the incredible blockchain platform
+- **Move Language Team** - For the security-focused language design
+- **React Team** - For the powerful UI framework
+- **All Contributors** - For improving this project
 
 ---
 
 <div align="center">
   <p><strong>Built with ❤️ on Sui Network</strong></p>
-  <p>Star ⭐ jika project ini bermanfaat!</p>
+  <p>⭐ If you find this project helpful, please consider starring it!</p>
+  
+  <br/>
+  
+  [Report a Bug](https://github.com/nesnyx/sui-voting-system/issues) • [Request a Feature](https://github.com/nesnyx/sui-voting-system/discussions) • [View Docs](https://docs.sui.io)
 </div>
